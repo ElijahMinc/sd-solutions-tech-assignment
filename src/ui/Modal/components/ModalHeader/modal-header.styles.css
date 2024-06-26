@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+  .modal-header {
+    @apply flex flex-col space-y-2 text-center sm:text-left;
+  }
+}

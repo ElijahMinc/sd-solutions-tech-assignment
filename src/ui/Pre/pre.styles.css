@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+  .pre {
+    @apply mt-6 p-4 bg-gray-100 dark:bg-gray-700 rounded;
+  }
+}

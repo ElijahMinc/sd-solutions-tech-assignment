@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+  .select-label {
+    @apply py-1.5 pl-8 pr-2 text-sm font-semibold;
+  }
+}
