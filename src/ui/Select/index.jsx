@@ -7,9 +7,11 @@ export const BaseSelect = ({
   data = [],
   currentValue = '',
   currentPlaceholder = '',
+
+  handleValueChange,
 }) => {
   return (
-    <Select>
+    <Select onValueChange={handleValueChange}>
       <SelectTrigger className="w-[180px] mt-3">
         <SelectValue placeholder={currentPlaceholder} value={currentValue} />
       </SelectTrigger>

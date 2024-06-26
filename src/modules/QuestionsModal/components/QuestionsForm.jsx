@@ -7,7 +7,7 @@ import { questionOptions } from '../constants/questionOptions';
 import { getIsSaveEnabledChoice } from '../helpers/getIsSaveEnabledChoice';
 import { Button } from '@/ui/Button';
 import { updateChoicesStateByIdFieldValue } from '../helpers/getUpdatedChoice';
-import { isEmptyTitle } from '../helpers/checkIsEmptyTitle';
+import { isEmptyTitle } from '../helpers/isEmptyTitle';
 
 export const QuestionsForm = ({ onSave }) => {
   const [title, setTitle] = useState('');
@@ -51,8 +51,14 @@ export const QuestionsForm = ({ onSave }) => {
             className: 'mb-4',
           }}
         />
-
         <BaseSelect
+          handleValueChange={(value) => {
+            handleChangeChoiceItem({
+              currentId: id,
+              field: 'type',
+              value,
+            });
+          }}
           data={questionOptions}
           currentPlaceholder={type}
           currentValue={text}

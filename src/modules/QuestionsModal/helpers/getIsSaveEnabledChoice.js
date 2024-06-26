@@ -1,2 +1,4 @@
+import { isEmptyTitle } from './isEmptyTitle';
+
 export const getIsSaveEnabledChoice = (choices) =>
-  choices.every((choice) => choice.text && choice.type);
+  choices.every((choice) => !isEmptyTitle(choice.text) && choice.type);
