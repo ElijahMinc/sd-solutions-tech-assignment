@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# SD Solutions Test Assignment
 
-First, run the development server:
+Dear Interviewer,
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+I hope this README finds you well. I would like to draw your attention to the architecture I have organized for this project. It could have been done much more simply since the project is quite small.
+
+I followed the Module Simple Architecture, where the structure consists of the following main layers:
+
+* **UI** - This layer consists of basic components that absolutely do not contain any business logic. This layer cannot use the Components, Module, and Pages layers. Examples of these components are: Button, Input, Modal, Select, etc.
+
+* **Components** - This layer may contain some business logic, but not much. It can only consist of the UI layer below it. Examples of these components are: UserCard, Comment, RatingCard, etc.
+
+* **Modules** - This layer should be as independent as possible. It can consist of the layers below it - UI and Components. It isolates all logic. For instance, InfinityUsersList includes UserCard, ArticleComments includes Comments, and so on. In our case, it is simply QuestionsModal. This layer can contain everything related to the module: API, components, constants, helpers, store, etc.
+
+* **Pages** - This layer consists of the layers presented below it.
+
+Page example:
+
+```javascript
+const ArticlePage = () => {
+  return (
+     <div>
+        <ArticleDetails />
+        <ArticleStarRating />
+        <ArticleAuthor />
+        <ArticleComments />
+     </div>
+    )
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+**Conclusion**
+* One-way data flow;
+* The underlying layers cannot use the overlying layers;
+* One module cannot use another module;
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Run Locally
 
-## Learn More
+Clone the project
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+  https://github.com/ElijahMinc/sd-solutions-tech-assignment.git
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Go to the project directory
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+  cd sd-solutions-tech-assignment
+```
 
-## Deploy on Vercel
+Install dependencies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+  npm install
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Start the server
+
+```bash
+  npm run dev
+```
+
+Command for build
+
+```bash
+  npm run build
+```
+
